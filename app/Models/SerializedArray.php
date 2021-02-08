@@ -5,18 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Studentproject extends Model
+class SerializedArray extends Model
 {
     use HasFactory;
-
     protected $fillable = [
-        'StudentID',
-        'ProjectID',
-        'Titleoftheproject',
-        'Description',
-        'Technologies',
-        'ProjectType'
-        
+        'swords'
     ];
+
     
 }

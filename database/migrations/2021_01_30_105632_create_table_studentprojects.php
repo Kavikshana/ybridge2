@@ -23,6 +23,11 @@ class CreateTableStudentprojects extends Migration
             $table->string('Technologies');
             $table->timestamps();
         });
+    
+
+        $sql = "INSERT INTO descriptions(description)\n"
+
+        . "SELECT Description FROM studentprojects";
     }
 
     /**
@@ -32,6 +37,6 @@ class CreateTableStudentprojects extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_studentprojects');
+        Schema::dropIfExists('studentprojects');
     }
 }

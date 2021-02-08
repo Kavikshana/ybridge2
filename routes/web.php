@@ -12,7 +12,7 @@ use App\Http\Controllers\CreateProjectController;
 use App\user;
 use App\Http\Controllers\UpdateProfiles;
 use App\Http\Controllers\StudentprojectController;
-
+use App\Http\Controllers\DescriptionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -98,6 +98,20 @@ Route::get('/create1',[StudentprojectController::class,'create']);
 
 Route::post('/st',[StudentprojectController::class,'store1']);
 
+
+Route::post('/split',[DescriptionController::class,'split']);
+
+Route::post('/keywords',[DescriptionController::class,'keywords']);
+
+Route::post('/collection',[DescriptionController::class,'index']);
+
+Route::post('/sto',[DescriptionController::class,'store']);
+
+Route::get('/join',[DescriptionController::class,'join']);
+Route::get('/receive',[DescriptionController::class,'receive']);
+Route::get('/sql',[StudentprojectController::class,'sql']);
+
+Route::get('/remove',[StudentprojectController::class,'remove']);
 
 /*Route::get('Admin/Admin',function(){
     $data=App\user::all();

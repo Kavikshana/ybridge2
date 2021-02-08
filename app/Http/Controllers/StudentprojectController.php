@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Student;
 use App\Models\User;
+use App\Models\Description;
 
 class StudentprojectController extends Controller
 {
@@ -31,18 +32,28 @@ class StudentprojectController extends Controller
         $studentproject->StudentID = request('StudentID');
         $studentproject->ProjectID = request('ProjectID');
         $studentproject->Titleoftheproject = request('Titleoftheproject');
+
         $studentproject->Description = request('Description');
+        
         $studentproject->ProjectType = request('ProjectType');
         $studentproject->Technologies = request('Technologies');
         
         //StudentProject::create($request->all());
         $studentproject->save();
 
+
         
         return redirect()->route('users.index');
         
        
      
+    }
+
+    public function sql()
+    {
+        $sql = "INSERT INTO table_descriptions(description)\n"
+
+    . "SELECT Description FROM studentprojects";
     }
 
 }

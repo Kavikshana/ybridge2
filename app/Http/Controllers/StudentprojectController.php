@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Student;
 use App\Models\User;
 use App\Models\Description;
+use Illuminate\Support\Str;
+use Illuminate\Support\Arr;
+
 
 class StudentprojectController extends Controller
 {
@@ -39,9 +42,28 @@ class StudentprojectController extends Controller
         $studentproject->Technologies = request('Technologies');
         
         //StudentProject::create($request->all());
-        $studentproject->save();
+       $studentproject->save();
+       $description = Str::of(request('Description'))->split('/[\s,]+/');
+       $keys = DB::table('dictionaries')->get();
+       $newArr = [];
+       //echo strcasecmp($description[0],"NeTwork");
+      
+      foreach($keys as $key){
+           for($i = 0 ; $i < count($description) ; $i++){
+               if(strcasecmp($description[$i],$key->keywordName) == 0){
+                   $newArr[] = $key->keywordName;
+               }
+           }
+           
+       }
+     
+      $desc = new Description();
+      $desc->StudentID = request('StudentID');
+      $desc->Description = implode(", ",$newArr);
 
+      $desc->save();
 
+   
         
         return redirect()->route('users.index');
         
@@ -49,11 +71,5 @@ class StudentprojectController extends Controller
      
     }
 
-    public function sql()
-    {
-        $sql = "INSERT INTO table_descriptions(description)\n"
-
-    . "SELECT Description FROM studentprojects";
-    }
-
+    
 }

@@ -64,7 +64,7 @@ public function join()
 //return redirect()->route('/sto');
 */
 
-    public function split()
+   /* public function split()
     {
     
     $description = DB::table('studentprojects')->pluck('Description');
@@ -72,6 +72,7 @@ public function join()
     //$description = Str::of($description)->split('/[\s,]+/')->first();
     $description = Str::of($Description)->split('/[\s,]+/')->first();
     return $Description->toArray();
+    */
 
     //$splittedword = serialize($splittedword['words']);
     //return $description;
@@ -80,11 +81,10 @@ public function join()
 
     //$serializedArrays->save();
 
-    }
     
     
-
-    public function store()
+    
+/**public function store()
     {
         $description= new Description;
         //$studentprojects = serialize($studentprojects['description']);
@@ -93,7 +93,7 @@ public function join()
 
         $description->save();
     }
-    
+    */
 
 
 

@@ -15,6 +15,7 @@ class CreateTableDescriptions extends Migration
     {
         Schema::create('descriptions', function (Blueprint $table) {
             $table->id();
+            $table->String('StudentID');
             $table->String('Description');
             $table->timestamps();
         });

@@ -9,7 +9,7 @@ class Description extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'Description'
+        //'Description'
     ];
 
     

@@ -1011,7 +1011,7 @@ class DictionarySeeder extends Seeder
             DB::table('dictionaries')->insert([
             'keywordId'=>'148',
             'keywordName'=>'blockage',
-            'mainTermId' => '',
+            'mainTermId' => '17',
             ]);
 
             DB::table('dictionaries')->insert([

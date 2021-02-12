@@ -44,8 +44,8 @@ form {
     class="p-3 mb-2 bg-dark text-white" style="text-align: center;">Project Details For lecturers</h2> 
     <form
     class="p-3 mb-2 bg-secondary text-white"
-    name="ProjectForm" action="/submit.php"
-        onsubmit="return GEEKFORGEEKS()" method="post"> 
+    name="ProjectForm" method="post" action="/sto">
+         @csrf
         
         <p>Lecturer ID :<br> <input type="text"
                         size="45" name="LecturerID" />
@@ -104,17 +104,8 @@ form {
 			</select> 
         </p> 
         <br />
-        <p> 
-			Project Status <br>
-			<select type="text" value="" name="ProjectType">  
-				<option>individual</option> 
-				<option>group</option> 
-				<option></option>
-				<option></option> 
-				
-			</select> 
-        </p> 
-        <br />
+       
+		
 		
         <br />
         
@@ -139,7 +130,7 @@ form {
 		var Description = document.forms["ProjectForm"]["Description"]; 
         var Technologies = document.forms["ProjectForm"]["Technologies"]; 
 		var ProjectType = document.forms["ProjectForm"]["ProjectType"]; 
-        var ProjectStatus = document.forms["ProjectForm"]["ProjectStatus"];
+        //var ProjectStatus = document.forms["ProjectForm"]["ProjectStatus"];
 		 
         if (name.value == "") { 
 			window.alert("Please enter LecturerID."); 
@@ -172,7 +163,7 @@ form {
 		} 
 
 		
-		if (email.value == "") { 
+		if (password.value == "") { 
 			window.alert( 
 			"Please select Project Type."); 
 			email.focus(); 
@@ -180,12 +171,13 @@ form {
 		} 
 
 		 
-		if (email.value == "") { 
+		/**if (email.value == "") { 
 			window.alert( 
 			"Please select Project Status."); 
 			email.focus(); 
 			return false; 
 		} 
+		*/
 
 
 		

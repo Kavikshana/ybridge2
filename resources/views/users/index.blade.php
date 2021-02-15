@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="">
-                <h2>User Request Pending Dashboard </h2>
+                <h2>Suggestions for students</h2>
             </div>
             <div class="pull-right">
                 <a class="btn btn-success" href="{{route('users.create')}}" title="Create a user">Create a user </a>
@@ -24,10 +24,10 @@
     <table class="table table-bordered table-responsive-lg" class="table text-center">
         <tr>
             <th>No</th>
-            <th>UserName</th>
-            <th>Role</th>
-            <th>password</th>
-            <th>Tools</th>
+            <th>Lecturers</th>
+            <th>Industrialists</th>
+            <th></th>
+            <th></th>
             
             
         </tr>
@@ -35,9 +35,9 @@
             <tr>
                 <table class="table table-dark"  class="table text-center" >
                 <td>{{++$i}}</td>
-                <td>{{$user->UserName}}</td>
-                <td>{{$user->Role}}</td>
-                <td>{{$user->password}}</td>
+                <td></td>
+                <td></td>
+                <td></td>
                 
                 <td>
                     <form action="{{route('users.destroy',$user->id) }}" method="Post">

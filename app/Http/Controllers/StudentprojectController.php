@@ -10,6 +10,10 @@ use App\Models\Description;
 use Illuminate\Support\Str;
 use Illuminate\Support\Arr;
 use App\Models\Connection;
+use App\Models\Connectlecturer;
+use App\Models\Academicproject;
+use App\Models\Desclecturer;
+use App\Models\Suggestion;
 
 
 class StudentprojectController extends Controller
@@ -21,15 +25,7 @@ class StudentprojectController extends Controller
     
     public function store1()
     {
-        /**$request->validate([
-            'StudentID' =>'required',
-            'ProjectID' => 'required',
-            'Titleoftheproject' => 'required',
-            'Description' => 'required',
-            'ProjectType'=>'required',
-            'Technologies'=>'required',
-        ]);
-        */
+
     
         $studentproject = new Studentproject();
 
@@ -75,94 +71,14 @@ class StudentprojectController extends Controller
      $connection->MainTermID = $maxMainKey;
      $connection->save();
     
-
+     $stu =DB::table('connectlecturers')->where('MainTermID',$maxMainKey)->pluck('LecturerID')->toArray();
+     $connect = new Suggestion();
+     $connect->MainTermID = $maxMainKey;
+     $connect->StudentID = request('StudentID');
+     $connect->LecturerID =$stu;
+     $connect->LecturerID = implode(", ",$stu);
+     $connect->save();
 
     return redirect()->route('users.index');
     }
 }
-
-
-       
-    
-    /**public function check()
-    {//$keys = DB::table('dictionaries')->get();
-        $words = DB::table('descriptions')->get();
-        $descript = $word->Description;
-        //$Arr = explode(" ",$descript);
-        $Arr = [];
-        //$mArr = [];
-        $connection = DB::table('connections');
-
-        foreach($words as $word){
-            for($i = 0 ; $i < count($description) ; $i++){*/
-                //if(strcasecmp($description[$i],$key->keywordName) == 0){
-                   // $newArr[] = $key->keywordName;
-                //$Arr = explode(", ",$descript);
-                //for($i = 0 ; $i < count($Arr) ; $i++){
-                   /**if(strcasecmp($Arr[$i],$key->keywordName) == 0){
-                        $mArr[] = $key;
-                        */
-                /**$dict =DB::table('dictionaries')->whereIn('keywordName',[$Arr])->pluck('mainTermId')->toArray();
-                    //$MainTermID = array_column($mArr, 'mainTermId');
-                    arsort($count);
-                    $dict=array_keys($count);
-                    $max = $dict[0];
-
-                $connection = new Connection();
-                $connection->StudentID = request('StudentID');
-                $connection->MainTermID = $max;
-                $connection->save();
-                    }
-               }
-        return redirect()->route('users.index');
-    }
-    */
-       
-
-
-
-        
-        
-    
-
-
-
-               /**$counts = array_count_values($mArr);
-                //$duplicate_title  = array_filter($mArr, function ($value) use ($counts){
-                //    $con = $mArr->sortBy('$counts[$value]', 'desc')->first();
-                //    $max = $con->value;
-                arsort($count);
-                $keys=array_keys($count);
-                $max = $keys[0];
-               // });
-               */
-              
-            
-
-
-            
-                
-            
-        
-        
-    
-        
-
-        
-        /**$nArr = [];
-       //echo strcasecmp($description[0],"NeTwork");
-      
-        foreach($keys as $key){
-           //for($i = 0 ; $i < count($description) ; $i++){
-               //if(strcasecmp($description[$i],$key->keywordName) == 0){
-                   $nArr[] = $key->keywordName;
-               //}
-           }
-
-           foreach($words as $word)
-           {
-           foreach($keys as $key)
-           {
-            }
-        }
-            */

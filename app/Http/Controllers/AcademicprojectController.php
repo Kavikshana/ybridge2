@@ -11,7 +11,10 @@ use App\Models\Desclecturer;
 use Illuminate\Support\Str;
 use Illuminate\Support\Arr;
 use App\Models\Connectlecturer;
-
+use App\Models\Connections;
+use App\Models\Student;
+use App\Models\Studentproject;
+use App\Models\Suggestion;
 
 class AcademicprojectController extends Controller
 
@@ -68,8 +71,17 @@ class AcademicprojectController extends Controller
          $connectionl->MainTermID = $maxMainKey;
          $connectionl->save();
          
+        $lec =DB::table('connections')->where('mainTermId',$maxMainKey)->pluck('StudentID'); 
+        $connect = new Suggestion();
+        $connect->MainTermID = $maxMainKey;
+        $connect->LecturerID = request('LecturerID');
+        $connect->StudentID = $lec;
+        $connect->save();
     
 
+
+
+       // $connect->save();
 
     return redirect()->route('users.index');
     }
